@@ -30,7 +30,7 @@ export function addTask(taskText, statusClass, taskID) {
                                     <span class="checkmark"></span>
                             </label>
                             <p class="task__text">${taskText}</p>
-                            <img src="../assets/img/close.svg" alt="remove task" class="task-close">`;
+                            <img src="assets/img/close.svg" alt="remove task" class="task-close">`;
 
 
     let task = document.getElementById("tasks").insertAdjacentElement('afterbegin', document.createElement("li"));
