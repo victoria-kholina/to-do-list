@@ -4,7 +4,8 @@
   font-style: normal;
   font-weight: 400;
   font-display: optional;
-  src: url(../fonts/SourceSansPro-Regular.ttf) format('truetype');
+  src: url(../fonts/regular/SourceSansPro-Regular.ttf) format('truetype'),
+          url(../fonts/regular/SourceSansPro-Regular.woff) format('woff');
 }
 
 @font-face {
@@ -12,12 +13,15 @@
   font-style: normal;
   font-weight: 300;
   font-display: optional;
-  src: url(../fonts/SourceSansPro-Light.ttf) format('truetype');
+  src: url(../fonts/light/SourceSansPro-Light.ttf) format('truetype'),
+          url(../fonts/light/SourceSansPro-Light.woff) format('woff');
 }
+
 @font-face {
   font-family: 'Source Sans Pro Bold';
   font-style: normal;
   font-weight: 900;
   font-display: optional;
-  src: url(../fonts/SourceSansPro-Bold.ttf) format('truetype');
+  src: url(../fonts/bold/SourceSansPro-Bold.ttf) format('truetype'),
+          url(../fonts/bold/SourceSansPro-Bold.woff) format('woff');
 }
