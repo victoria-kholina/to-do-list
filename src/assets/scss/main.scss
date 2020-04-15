@@ -1,0 +1,118 @@
+@import "reset", "fonts", "vars" , "btn",  "grid", "login", "account", "quotes", "tasks";
+
+input {
+  height: 40px;
+  &:-webkit-autofill {
+    -webkit-box-shadow: inset 0 0 0 50px $base-color !important;
+  }
+}
+input,
+button {
+  outline: none;
+  box-shadow: none;
+  font:  14px/1em "Source Sans Pro Light", sans-serif;
+}
+
+body {
+  font:  14px/1.6em 'Source Sans Pro light', sans-serif;
+  letter-spacing: .6px;
+  color: $dark-color;
+  height: 100%;
+  width: 100%;
+}
+
+#no-support-msg {
+  display: none;
+  text-transform: uppercase;
+  line-height: 1.5em;
+  margin: 20px;
+  background-color: rgba(255,255,255,0);
+  @media screen and (-ms-high-contrast: active),
+  screen and (-ms-high-contrast: none) {
+      display: block;
+  }
+}
+html:root {
+  #no-support-msg {
+    display: block\0;
+  }
+  .login-page {
+    display: none\0;
+  }
+}
+
+.preloader {
+  height: 100%;
+  width: 100%;
+  background-color: $base-color;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  img {
+    width: 80px;
+  }
+}
+
+footer {
+  background-color: $dark-color;
+  color: $base-color;
+  height: 45px;
+  z-index: 100;
+  p {
+    font-style: italic;
+  }
+}
+
+.logo {
+  display: inline-block;
+  vertical-align: middle;
+  width: 15px;
+  margin-left: 10px;
+  border: 1px solid $base-color;
+  padding: 5px;
+  border-radius: 50%;
+  @media screen and (min-width: $tablet) {
+    width: 18px;
+    margin-left: 20px;
+  }
+}
+
+.subtitle {
+  font-size: 20px;
+  display: inline-block;
+  font-weight: 300;
+  line-height: 1.2em;
+  @media screen and (min-width: $tablet) {
+    font-size: 22px;
+  }
+}
+.form__title.subtitle {
+  &:after {
+    content: "";
+    display: block;
+    background-color: $accent-color;
+    width: 100%;
+    height: 25px;
+    margin: -12px -5px 0;
+    padding: 0 5px;
+  }
+}
+.title {
+  display: inline-block;
+  line-height: 1.2em;
+  background-color: $accent-color;
+  padding: 10px;
+  margin-bottom: 30px;
+  font-size: 20px;
+  @media screen and (min-width: $tablet) {
+    font-size: 22px;
+  }
+  span {
+    text-transform: lowercase;
+  }
+}
+
+
+
+

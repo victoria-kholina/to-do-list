@@ -1,0 +1,175 @@
+@import "vars";
+
+.tasks {
+  height: 100%;
+  position: relative;
+  max-height: calc(50vh - 140px);
+  overflow-y: auto;
+  border: 1px solid $dark-color;
+  border-bottom: none;
+  @media screen and (min-width: $tablet) {
+      max-height: calc(50vh - 190px);
+  }
+  @media screen and (min-width: $small-desktop ) {
+      min-height: calc(100vh - 295px);
+  }
+  ul {
+    margin-left: 0;
+    padding-left: 0;
+  }
+  &::-webkit-scrollbar-button {
+    width: 5px;
+    height: 0;
+  }
+  &::-webkit-scrollbar-track {
+    background-color: $base-color;
+    border-bottom: 1px solid $dark-color;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 0;
+    background-color: $dark-color;
+    &:hover {
+      background-color: $dark-color;
+    }
+  }
+  &::-webkit-resizer {
+    background-image: none;
+    background-repeat: no-repeat;
+    width: 5px;
+    height: 0;
+  }
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+  &-filter {
+    padding-bottom: 5px;
+  }
+  &-filter ,
+  &-footer {
+    button {
+      display: inline-block;
+    }
+  }
+}
+
+.close-tasks {
+  position: relative;
+  top: 2px;
+  float: right;
+}
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-bottom: 10px;
+  list-style-type: none;
+  text-align: left;
+  padding: 10px 20px;
+  &-container {
+    position: relative;
+    padding: 0 20px 20px 65px;
+    height: 100%;
+    box-sizing: border-box;
+    @media screen and (min-width: $tablet) {
+        padding-left: 100px;
+    }
+    @media screen and (min-width: $small-desktop ) {
+        border: 20px solid $secondary-color;
+        padding: 20px;
+    }
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 100%;
+      top: 0;
+      width: 45px;
+      left: 0;
+      background-color: $accent-color;
+      @media screen and (min-width: $tablet) {
+          width: 80px;
+      }
+      @media screen and (min-width: $small-desktop ) {
+          display: none;
+      }
+    }
+  }
+  &__text {
+    display: inline-block;
+    padding: 0 20px;
+    font-size: 18px;
+    outline: none;
+    word-wrap: break-word;
+  }
+  &__mark {
+    display: inline-block;
+    cursor: pointer;
+    user-select: none;
+    padding: 5px;
+    position: relative;
+    width: 20px;
+    height: 20px;
+    input {
+      position: relative;
+      width: 20px;
+      height: 20px;
+      opacity: 0;
+      cursor: pointer;
+    }
+  }
+  &-form {
+    grid-template-columns: 65% 35%;
+    -ms-grid-columns: 65% 35%;
+    grid-template-rows: 1fr;
+    @media screen and (min-width: $tablet) {
+        grid-template-columns: 70% 30%;
+        -ms-grid-columns: 70% 30%;
+    }
+    @media screen and (min-width: $desktop) {
+        grid-template-columns: 80% 20%;
+        -ms-grid-columns: 80% 20%;
+    }
+    .form__item {
+      font-size: 14px;
+      @media screen and (min-width: $tablet) {
+          font-size: 18px;
+          color: $dark-color;
+      }
+    }
+  }
+}
+.new {
+  background-color: $secondary-color;
+  .checkmark {
+    background-color: $base-color;
+  }
+}
+.done {
+  background-color: $accent-color;
+  input {
+    &:checked + .checkmark {
+      background-color: $dark-color;
+    }
+  }
+  .checkmark {
+    background-color: $dark-color;
+  }
+}
+
+.checkmark {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background: $base-color url(../img/checked.svg) center center no-repeat;
+  background-size: 20px;
+  border: 1px solid $dark-color;
+  border-radius: 50%;
+  z-index: 0;
+}
+.task-close {
+  margin-left: auto;
+  cursor: pointer;
+}

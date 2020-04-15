@@ -1,0 +1,115 @@
+@import "vars";
+@import "avatar";
+
+.user-info {
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  -ms-grid-columns: 1fr;
+  padding: 35px 0 0 45px;
+  @media screen and (min-width: $tablet) {
+      padding: 30px 0 20px 80px;
+  }
+  @media screen and (min-width: $desktop) {
+      grid-template-columns: 1fr 4fr;
+      -ms-grid-columns: 1fr 4fr;
+      padding: 50px 0 50px 150px;
+  }
+  &__section {
+    min-height: calc(100vh - 90px);
+  }
+  &-container {
+    position: relative;
+    height: 100%;
+    background-color: rgba(255,255,255,0);
+    padding-left: 20px;
+    z-index: 1;
+    &:before {
+      content: "";
+      display: block;
+      position: absolute;
+      height: 100%;
+      top: 0;
+      z-index: -1;
+      width: 45px;
+      left: 0;
+      background-color: $accent-color;
+      @media screen and (min-width: $tablet) {
+          width: 80px;
+      }
+      @media screen and (min-width: $desktop) {
+          width: 170px;
+      }
+    }
+  }
+  &__img {
+    width: 120px;
+    height: 120px;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 10px;
+    @media screen and (min-width: $tablet) {
+        width: 140px;
+        height: 140px;
+        margin-bottom: 20px;
+    }
+    @media screen and (min-width: $desktop) {
+        left: -70px;
+        margin-bottom: 0;
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      display: block;
+      width: 200px;
+      height: 20px;
+      top: 50%;
+      margin-top: -10px;
+      margin-left: -40px;
+      border-top: 1px solid $dark-color;
+      border-bottom: 1px solid $dark-color;
+      transform: skewX(-50deg);
+      z-index: -1;
+      transition: 0.5s ease-in-out;
+      @media screen and (min-width: $tablet) {
+          width: 260px;
+          margin-left: -60px;
+      }
+    }
+    .avatar {
+      position: absolute;
+    }
+    &:hover {
+      &:after {
+        transform: skewX(50deg);
+      }
+    }
+  }
+  &__title {
+    padding-right: 20px;
+    @media screen and (min-width: $desktop) {
+      padding-left: 20px;
+        h2 {
+          font-size: 28px;
+        }
+    }
+    h1 {
+      color: $secondary-color;
+      line-height: 1em;
+      font-family: "Source Sans Pro Bold", sans-serif;
+      font-size: 42px;
+      -webkit-text-fill-color: $secondary-color;
+      -webkit-text-stroke-color: $dark-color;
+      -webkit-text-stroke-width: 1px;
+      @media screen and (min-width: $tablet) {
+            font-size: 52px;
+      }
+    }
+    h2 {
+      padding-top: 10px;
+      @media screen and (min-width: $tablet) {
+            padding-top: 15px;
+      }
+    }
+  }
+}
+

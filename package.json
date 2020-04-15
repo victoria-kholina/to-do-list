@@ -1,0 +1,42 @@
+{
+  "name": "to-do-list",
+  "version": "1.0.0",
+  "description": "Simple HTML/CSS/Javascript To do list with minimalistic design. Final project of Javascript course",
+  "main": "index.js",
+  "scripts": {
+    "dev": " webpack-dev-server --watch --config ./build-config/webpack.dev.conf.js ",
+    "prod": "webpack --config ./build-config/webpack.build.conf.js"
+  },
+  "browserslist": [
+    ">1%",
+    "last 3 version"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/victoria-kholina/to-do-list.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/victoria-kholina/to-do-list/issues"
+  },
+  "homepage": "https://github.com/victoria-kholina/to-do-list#readme",
+  "devDependencies": {
+    "autoprefixer": "^9.7.5",
+    "copy-webpack-plugin": "^5.1.1",
+    "css-loader": "^3.4.2",
+    "cssnano": "^4.1.10",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^4.0.2",
+    "mini-css-extract-plugin": "^0.9.0",
+    "node-sass": "^4.13.1",
+    "postcss-loader": "^3.0.0",
+    "sass-loader": "^8.0.2",
+    "style-loader": "^1.1.3",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {}
+}

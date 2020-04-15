@@ -1,0 +1,49 @@
+@import "vars";
+@import "user-info";
+
+.user-account {
+  display: none;
+  height: 100%;
+  &__header {
+    background-color: $dark-color;
+    color: $base-color;
+    height: 45px;
+    z-index: 100;
+    align-items: center;
+    h1 {
+      font-weight: 300;
+      font-size: 22px;
+      word-spacing: -3px;
+      line-height: 1em;
+      display: inline-block;
+      vertical-align: middle;
+      @media screen and (min-width: $tablet) {
+        font-size: 26px;
+      }
+    }
+    .col {
+      text-align: left;
+      &:last-child {
+        text-align: right;
+        padding-right: 10px;
+        @media screen and (min-width: $tablet) {
+              padding-right: 15px;
+          }
+      }
+    }
+  }
+  &__section {
+    min-height: calc(100vh - 90px);
+    @media screen and (max-width: 600px){
+    grid-template-rows: 42% 58%;
+    }
+    @media screen and (max-width: 1023px) {
+      grid-template-columns: 1fr;
+      -ms-grid-columns: 1fr;
+    }
+    @media screen and (min-width: 601px) and (max-width: 1023px) {
+      grid-template-rows: 1fr 1fr;
+    }
+  }
+}
+

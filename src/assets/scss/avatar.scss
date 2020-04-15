@@ -1,0 +1,22 @@
+@import "vars";
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  background-color: $base-color;
+  box-sizing: border-box;
+  overflow: hidden;
+  border: 1px solid $dark-color;
+  border-radius: 50%;
+  margin: 0 auto;
+  img {
+    max-height: 200px;
+    margin-top: 50%;
+    margin-left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  @media screen and (min-width: $tablet) {
+    width: 140px;
+    height: 140px;
+  }
+}

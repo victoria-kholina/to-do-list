@@ -1,0 +1,25 @@
+@import "vars";
+
+.grid-block {
+  display: grid;
+}
+.grid-2-columns {
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 1fr;
+}
+.flex-center {
+  display: flex;
+  display: -ms-flex;
+  justify-content: center;
+  align-items: center;
+  @media screen and (-ms-high-contrast: active),
+  screen and (-ms-high-contrast: none) {
+    display: block;
+  }
+}
+.wrapper {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+  background: linear-gradient(-45deg,$secondary-color 60%,$base-color 0)
+}

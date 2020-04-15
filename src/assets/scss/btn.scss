@@ -1,0 +1,66 @@
+@import "vars";
+
+button {
+  cursor: pointer;
+}
+.btn {
+  background-color: $dark-color;
+  color: $base-color;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid $dark-color;
+  height: 40px;
+  transition: 0.5s ease-in-out;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  cursor: pointer;
+  &:hover,
+  &:focus,
+  &:active {
+    background-color: $base-color;
+    color: $dark-color;
+  }
+  @media screen and (min-width: $tablet){
+  padding: 10px 20px;
+  }
+}
+
+.link {
+  text-decoration: none;
+  font-style: italic;
+  &:hover,
+  &:active,
+  &:focus {
+    text-decoration: underline;
+  }
+}
+.white-link {
+  color: $base-color;
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited {
+    color: $base-color;
+  }
+}
+.black-link {
+  color: $dark-color;
+  &:hover,
+  &:active,
+  &:focus,
+  &:visited  {
+    color: $dark-color;
+  }
+}
+.btn-link {
+  border: none;
+  background: none;
+  width: auto;
+  margin: 0 auto;
+}
+.white-btn {
+  &:hover {
+    background-color: $dark-color;
+    color: $base-color;
+  }
+}
