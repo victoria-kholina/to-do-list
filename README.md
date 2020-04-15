@@ -1,5 +1,5 @@
 # to-do-list
-Simple HTML/CSS/Javascript To do list with minimalistic design. Final project of Javascript course
+Simple HTML/CSS/Javascript To do list with minimalistic design. Final project of Javascript course<br>
 Built with Webpack.<br>
 To run the project use command "npm install" <br>
 For dev version use command "dev", for production use "prod"
