@@ -17,7 +17,7 @@ module.exports = {
     output: {
         filename: `js/[name].js`,
         path: PATHS.dist,
-        publicPath: '/'
+        publicPath: ' '
     },
     module: {
         rules: [
