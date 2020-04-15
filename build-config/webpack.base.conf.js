@@ -17,7 +17,8 @@ module.exports = {
     output: {
         filename: `js/[name].js`,
         path: PATHS.dist,
-        publicPath: ' '
+        // uncomment this if live reloading not works
+        // publicPath: '/'
     },
     module: {
         rules: [

@@ -2,7 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="dc871c75-aada-4cbb-bb4c-8e9609b29c86" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/src/js/task.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/js/task.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build-config/webpack.base.conf.js" beforeDir="false" afterPath="$PROJECT_DIR$/build-config/webpack.base.conf.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/css/main.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/fonts/bold/SourceSansPro-Bold.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/fonts/bold/SourceSansPro-Bold.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/fonts/light/SourceSansPro-Light.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/fonts/light/SourceSansPro-Light.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/fonts/regular/SourceSansPro-Regular.ttf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/fonts/regular/SourceSansPro-Regular.woff" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/img/checked.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/img/close.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/img/eye.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/img/figura-1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/img/hide.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/img/left-quote.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/img/unnamed.gif" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/assets/img/user.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/js/main.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/account.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/account.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/fonts.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/fonts.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/assets/scss/tasks.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/assets/scss/tasks.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -30,11 +52,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/assets/scss/tasks.scss">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="770">
-              <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
+            <state relative-caret-position="110">
+              <caret line="56" column="11" lean-forward="true" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -52,45 +74,27 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/assets/scss/grid.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/build-config/postcss.config.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="242">
-              <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/assets/scss/fonts.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="440">
-              <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/assets/scss/reset.scss">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="308">
-              <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="19" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/js/task.js">
+        <entry file="file://$PROJECT_DIR$/build-config/webpack.base.conf.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
+              <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="228">
+              <caret line="136" column="128" selection-start-line="136" selection-start-column="128" selection-end-line="136" selection-end-column="128" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/js/task.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="242">
               <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
               <folding>
                 <element signature="e#0#48#0" expanded="true" />
@@ -100,10 +104,19 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/package.json">
+        <entry file="file://$PROJECT_DIR$/build-config/webpack.dev.conf.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="66">
-              <caret line="24" column="29" selection-start-line="24" selection-start-column="29" selection-end-line="24" selection-end-column="29" />
+            <state relative-caret-position="-66">
+              <caret line="9" column="55" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="55" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assets/scss/account.scss">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="110">
+              <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -206,7 +219,6 @@
         <option value="$PROJECT_DIR$/src/assets/scss/quotes.scss" />
         <option value="$PROJECT_DIR$/src/assets/scss/avatar.scss" />
         <option value="$PROJECT_DIR$/src/assets/scss/login.scss" />
-        <option value="$PROJECT_DIR$/src/assets/scss/account.scss" />
         <option value="$PROJECT_DIR$/src/js/account.js" />
         <option value="$PROJECT_DIR$/src/assets/scss/btn.scss" />
         <option value="$PROJECT_DIR$/src/assets/scss/user-info.scss" />
@@ -215,23 +227,24 @@
         <option value="$PROJECT_DIR$/src/js/request.js" />
         <option value="$PROJECT_DIR$/src/js/toggle.js" />
         <option value="$PROJECT_DIR$/src/assets/scss/form.scss" />
-        <option value="$PROJECT_DIR$/src/index.html" />
-        <option value="$PROJECT_DIR$/src/assets/scss/tasks.scss" />
         <option value="$PROJECT_DIR$/src/assets/scss/grid.scss" />
         <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/assets/scss/main.scss" />
         <option value="$PROJECT_DIR$/build-config/postcss.config.js" />
-        <option value="$PROJECT_DIR$/build-config/webpack.base.conf.js" />
         <option value="$PROJECT_DIR$/src/index.js" />
-        <option value="$PROJECT_DIR$/src/assets/scss/fonts.scss" />
         <option value="$PROJECT_DIR$/src/assets/scss/reset.scss" />
         <option value="$PROJECT_DIR$/src/js/task.js" />
+        <option value="$PROJECT_DIR$/src/assets/scss/fonts.scss" />
+        <option value="$PROJECT_DIR$/src/assets/scss/account.scss" />
+        <option value="$PROJECT_DIR$/build-config/webpack.base.conf.js" />
+        <option value="$PROJECT_DIR$/src/index.html" />
+        <option value="$PROJECT_DIR$/src/assets/scss/tasks.scss" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-144" />
-    <option name="y" value="62" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="195" />
+    <option name="y" value="151" />
     <option name="width" value="1325" />
     <option name="height" value="875" />
   </component>
@@ -420,12 +433,12 @@
       <workItem from="1586779884757" duration="1498000" />
       <workItem from="1586875186846" duration="1157000" />
       <workItem from="1586878595785" duration="8780000" />
-      <workItem from="1586948830917" duration="19228000" />
+      <workItem from="1586948830917" duration="21676000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="168813000" />
+    <option name="totallyTimeSpent" value="171261000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -440,13 +453,13 @@
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6926346" visible="true" weight="0.21073826" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.6920078" visible="true" weight="0.21073826" />
       <window_info id="Structure" order="1" sideWeight="0.24590164" side_tool="true" weight="0.32020548" />
-      <window_info id="npm" order="2" sideWeight="0.30736545" side_tool="true" visible="true" weight="0.21073826" />
+      <window_info id="npm" order="2" sideWeight="0.3079922" side_tool="true" visible="true" weight="0.21073826" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3286119" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.2733711" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.2733711" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -545,13 +558,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build-config/webpack.dev.conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="9" column="55" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="55" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/dist/index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -633,13 +639,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/scss/account.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="37" column="30" selection-start-line="37" selection-start-column="30" selection-end-line="37" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/account.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="352">
@@ -701,13 +700,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="129" column="36" selection-start-line="129" selection-start-column="36" selection-end-line="129" selection-end-column="36" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/js/request.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
@@ -732,13 +724,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/scss/grid.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="66">
-          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -756,13 +741,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/scss/tasks.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="770">
-          <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/scss/main.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1100">
@@ -777,10 +755,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/build-config/webpack.base.conf.js">
+    <entry file="file://$PROJECT_DIR$/src/assets/scss/reset.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-264">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        <state relative-caret-position="308">
+          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="19" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/scss/fonts.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="154">
+          <caret line="7" column="1" selection-start-line="7" selection-start-column="1" selection-end-line="7" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/scss/grid.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="66">
+          <caret line="3" column="16" selection-start-line="3" selection-start-column="16" selection-end-line="3" selection-end-column="16" />
         </state>
       </provider>
     </entry>
@@ -791,27 +783,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/scss/fonts.scss">
+    <entry file="file://$PROJECT_DIR$/build-config/webpack.dev.conf.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="20" column="19" selection-start-line="20" selection-start-column="19" selection-end-line="20" selection-end-column="19" />
+        <state relative-caret-position="-66">
+          <caret line="9" column="55" selection-start-line="9" selection-start-column="38" selection-end-line="9" selection-end-column="55" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/scss/reset.scss">
+    <entry file="file://$PROJECT_DIR$/src/assets/scss/account.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="308">
-          <caret line="17" column="12" selection-start-line="17" selection-start-column="12" selection-end-line="19" selection-end-column="16" />
+        <state relative-caret-position="110">
+          <caret line="14" column="24" lean-forward="true" selection-start-line="14" selection-start-column="24" selection-end-line="14" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/build-config/webpack.base.conf.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="22" column="13" lean-forward="true" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="136" column="128" selection-start-line="136" selection-start-column="128" selection-end-line="136" selection-end-column="128" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/js/task.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
+        <state relative-caret-position="242">
           <caret line="32" column="38" selection-start-line="32" selection-start-column="38" selection-end-line="32" selection-end-column="38" />
           <folding>
             <element signature="e#0#48#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/scss/tasks.scss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="110">
+          <caret line="56" column="11" lean-forward="true" selection-start-line="56" selection-start-column="11" selection-end-line="56" selection-end-column="11" />
         </state>
       </provider>
     </entry>
