@@ -14,6 +14,6 @@ all tasks & save changes on server.
 * random quote on page load
 * markup is valid & responsive. Project is fullscreen on all devices.
 
-###Notes
+### Notes
 * Project works with 2 latest versions of modern browsers (Chrome, Firefox, Opera, Safari, Edge)
 * IE is hidden as not supports technologies used in the project
