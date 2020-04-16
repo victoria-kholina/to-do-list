@@ -3,7 +3,7 @@
 .tasks {
   height: 100%;
   position: relative;
-  max-height: calc(50vh - 140px);
+  max-height: calc(50vh - 70px);
   overflow-y: auto;
   border: 1px solid $dark-color;
   border-bottom: none;
@@ -134,6 +134,12 @@
       @media screen and (min-width: $tablet) {
           font-size: 18px;
           color: $dark-color;
+      }
+    }
+    .btn {
+      @media (max-width:  320px) {
+        font-size: 12px;
+        padding: 0;
       }
     }
   }
