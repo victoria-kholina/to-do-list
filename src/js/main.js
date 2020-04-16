@@ -24,3 +24,15 @@ function checkifSignedOut() {
     let randomInt = Math.floor(Math.random() * quotes.length ) ;
     quotes[randomInt].style.display ="flex";
 })()
+
+function setDocumentHeight() {
+        document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`)
+};
+
+if( window.innerHeight > 500 ) {
+    window.addEventListener("resize", setDocumentHeight);
+    window.addEventListener('orientationchange', setDocumentHeight)
+    setDocumentHeight()
+}
+
+
