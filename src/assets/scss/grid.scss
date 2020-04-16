@@ -23,7 +23,7 @@
   width: 100vw;
   position: relative;
   background: linear-gradient(-45deg,$secondary-color 60%,$base-color 0);
-  @media screen and (orientation: landscape) {
+  @media screen and (max-height: 767px) and (orientation: landscape) {
     height: 100%;
   }
 }

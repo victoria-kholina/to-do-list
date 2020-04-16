@@ -3,22 +3,10 @@
 .tasks {
   height: 100%;
   position: relative;
-  max-height: calc(50vh - 70px);
+  max-height: calc(100% - 130px);
   overflow-y: auto;
   border: 1px solid $dark-color;
   border-bottom: none;
-  @media screen and (max-width: 600px){
-    max-height: calc(var(--vh, 1vh)*50 - 80px);
-  }
-  @media screen and (min-width: $tablet) {
-      max-height: calc(50vh - 190px);
-  }
-  @media screen and (min-width: $small-desktop ) {
-      min-height: calc(100vh - 295px);
-  }
-  @media screen and (orientation: landscape) {
-    max-height: 50%;
-  }
   ul {
     margin-left: 0;
     padding-left: 0;
