@@ -26,13 +26,13 @@ function checkifSignedOut() {
 })()
 
 function setDocumentHeight() {
+    if( window.innerHeight > 500 ) {
         document.documentElement.style.setProperty('--vh', `${window.innerHeight/100}px`)
+    }
 };
 
-if( window.innerHeight > 500 ) {
-    window.addEventListener("resize", setDocumentHeight);
-    window.addEventListener('orientationchange', setDocumentHeight)
-    setDocumentHeight()
-}
+window.addEventListener("resize", setDocumentHeight);
+window.addEventListener('orientationchange', setDocumentHeight)
+setDocumentHeight()
 
 
