@@ -7,13 +7,13 @@ export function startObserve(user, elem) {
             mutations.forEach(
                 function ( mutation ) {
 
-                    // DELETE TASK
+                    // REMOVE TASK
                     for( let elem of document.getElementsByClassName("task-close")) {
                         elem.onclick = function (event) {
                             let taskIndex = user.tasks.findIndex( task => task.id === event.target.parentElement.getAttribute("id"))
                             user.tasks.splice(taskIndex, 1);
                             event.target.parentNode.remove();
-                            countTasks()
+                            countTasks();
                         }
                     }
                     // CHANGE STATUS OF TASK

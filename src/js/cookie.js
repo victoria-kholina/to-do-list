@@ -3,9 +3,9 @@ import {loginContainer, accountContainer} from "./vars";
 
 export let emptyDate = new Date ( 0 ).toUTCString ();
 
-export function writeCookie(user) {
-    document.cookie= `login=${user.login}`;
-    document.cookie= `psw=${user.password}`;
+export function writeCookie(user, binID) {
+    document.cookie = `login=${user.login}`;
+    document.cookie = `binID=${ binID }`;
     document.cookie = "signed-out=; expires=" + emptyDate;
 }
 
@@ -19,7 +19,7 @@ export function getCookie(key) {
 
 export function removeCookie() {
     document.cookie = "login=; expires=" + emptyDate;
-    document.cookie = "psw=; expires=" + emptyDate;
+    document.cookie = "binID=; expires=" + emptyDate;
     document.cookie = "signed out=; expires=" + emptyDate;
     toggleDisplay( loginContainer, accountContainer );
 }

@@ -1,40 +1,53 @@
-import { userUrl} from "./vars";
+import * as vars from "./vars";
 import { getCookie } from "./cookie";
-import { showAccount } from "./account";
 
-export function getUserData(url) {
-    return fetch(url)
-        .then(response => response.json())
+export function getDB() {
+    return fetch(vars.urlDB, {
+        headers: {
+            "secret-key": vars.secretKey
+        }
+    }).then(response => response.json())
 }
 
-export function postData(url, userData) {
+export function getUserData( binUrl ) {
+    return fetch(binUrl, {
+        headers: {
+            "secret-key": vars.secretKey
+        }
+    }).then(response => response.json())
+}
+
+export function updateData( url, data ) {
     return fetch ( url, {
+        method: 'PUT',
+        headers: {
+            "Content-Type": "application/json",
+            "secret-key":  vars.secretKey,
+            "versioning":  false
+            ///"name": userData.login
+        },
+        body: JSON.stringify(data )
+    } )
+}
+export function createNewBin (userData) {
+    return fetch ( vars.binRoot, {
         method: 'POST',
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "secret-key":  vars.secretKey,
+            "collection-id" : vars.collectionID,
+             "name": userData.login
         },
-        body: JSON.stringify( userData )
-    } ).then ( response => response.json() )
-        .then(response => showAccount( response ) );
-}
-
-export function editTasks(url, userTasks) {
-    return fetch ( userUrl(getCookie("login") ), {
-        method: "PATCH",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify ({
-            tasks: userTasks
-        } )
-    } )
+        body: JSON.stringify(userData)
+    } ).then(response => response.json())
 }
 
 export function deleteAccount(url) {
     return fetch( url , {
         method: "DELETE",
         headers: {
-            "Content-Type": "application/json"
+            "Content-Type": "application/json",
+            "secret-key": vars.secretKey
         }
     }).then ( response => response  )
 }

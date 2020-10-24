@@ -1,21 +1,20 @@
-import * as cookie from  './cookie'
-import {preloader, userUrl} from "./vars";
+import { getCookie } from  './cookie'
+import { preloader, setUserBinUrl, setUser, user, userBinUrl } from "./vars";
 import * as request from "./request";
 import {showAccount} from "./account";
 
-export let requestUserData = request.getUserData ( userUrl(cookie.getCookie("login")) );
-
-cookie.getCookie("login") ? checkifSignedOut() : preloader.style.display = "none";
+getCookie("binID") ? checkifSignedOut() : preloader.style.display = "none";
 
 function checkifSignedOut() {
-    if( cookie.getCookie("signed-out" )) {
-        document.getElementById("user-login").value = cookie.getCookie("login") //set login from cookie into input field
+    if( getCookie("signed-out" )) {
+        document.getElementById("user-login").value = getCookie("login"); //set login from cookie into input field
         preloader.style.display = "none"
     } else {
-        requestUserData.then ( user => user.error ? cookie.removeCookie() :
-            user.password === cookie.getCookie("psw") ? showAccount(user) :
-                console.log("psw different in db and cookie")
-        )
+        setUserBinUrl(getCookie("binID"))
+         request.getUserData ( userBinUrl  ). then(result => {
+             setUser( result );
+             showAccount(user);
+         })
     }
 }
 
@@ -33,6 +32,6 @@ function setDocumentHeight() {
 
 window.addEventListener("resize", setDocumentHeight);
 window.addEventListener('orientationchange', setDocumentHeight)
-setDocumentHeight()
+setDocumentHeight();
 
 

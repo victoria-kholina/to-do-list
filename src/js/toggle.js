@@ -1,4 +1,4 @@
-import {loginContainer, mainContainer} from "./vars";
+import {loginContainer, mainContainer, preloader} from "./vars";
 import { countTasks, removeTasks } from "./task";
 
 export function toggle( elemToShow, elemToHide) {

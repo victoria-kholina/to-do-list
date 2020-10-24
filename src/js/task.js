@@ -1,8 +1,7 @@
 import {  toggleTasksDisplay  } from "./toggle";
-import { userData } from "./account";
-import * as request from "./request";
-import { userUrl } from "./vars";
+import { user, userBinUrl } from"./vars"
 import { errorText } from "./validation";
+import { updateData } from "./request";
 
 export function countTasks() {
     let tasksLength= document.getElementsByClassName("new").length;
@@ -12,19 +11,7 @@ export function countTasks() {
 }
 
 
-function setID() { //recursion
-    let taskId = Math.floor(Math.random() * 10000 );
-
-    for(  let task of document.getElementsByClassName("task") ) {
-        if ( task.getAttribute("id") ===  taskId.toString() ) {
-            setID();
-        }  else  {
-            return taskId.toString();
-        }
-    }
-}
-
-export function addTask(taskText, statusClass, taskID) {
+export function addTask(taskText, statusClass) {
     let htmlText = `<label class="task__mark">
                                     <input type="checkbox" >
                                     <span class="checkmark"></span>
@@ -32,12 +19,10 @@ export function addTask(taskText, statusClass, taskID) {
                             <p class="task__text">${taskText}</p>
                             <img src="assets/img/close.svg" alt="remove task" class="task-close">`;
 
-
     let task = document.getElementById("tasks").insertAdjacentElement('afterbegin', document.createElement("li"));
     task.classList.add("task", statusClass);
-    task.setAttribute("id", taskID );
     task.innerHTML = htmlText;
- 
+    task.setAttribute("id", setID() );
    return task;
 }
 
@@ -58,15 +43,15 @@ function cleanValue () {
 document.getElementById("add-task").onclick = function (event) {
     let inputTask = document.getElementById("new-task");
     if (inputTask.value !== "")  {
-        let newID =setID();
-        let newTask = addTask (inputTask.value, "new", newID );
-        if ( userData ) {
-            let userTasks =  userData.tasks;
+        let newTask = addTask (inputTask.value, "new");
+        if ( user ) {
+            let userTasks =  user.tasks;
             userTasks.push( {
                 id: newTask.getAttribute( "id"),
                 task: inputTask.value,
                 status: "new"
             } )
+            console.log(user) ;
         }
         cleanValue ();
         errorText !== "" ? errorText (inputTask, " ") : null;
@@ -76,6 +61,17 @@ document.getElementById("add-task").onclick = function (event) {
     }
 }
 
+function setID() { //recursion
+    let taskId = Math.floor(Math.random() * 10000 );
+
+    for(  let task of document.getElementsByClassName("task") ) {
+        if ( task.getAttribute("id") ===  taskId.toString() ) {
+            setID();
+        }  else  {
+            return taskId.toString();
+        }
+    }
+}
 // FILTER TASKS
 document.getElementById("all-tasks").onclick= function (event) {
     toggleTasksDisplay("task")
@@ -90,14 +86,17 @@ document.getElementById("done-tasks").onclick= function (event) {
 // SAVE CHANGES
 
 document.getElementById("save-tasks").onclick= function (event) {
-    request.editTasks( userUrl(userData.login)  , userData.tasks)
-        .then(result => event.target.innerText = "Your tasks successfully saved")
+    event.target.disabled = true;
+    updateData( userBinUrl, user ).then(result => {
+        event.target.innerText = "Your tasks successfully saved" ;
+        event.target.disabled = false;
+    })
 }
 
 // REMOVE ALL TASKS
 
 document.getElementById("close-all-tasks").onclick= function (event) {
-        userData.tasks = []
-        removeTasks();
+        user.tasks = []
+        updateData( userBinUrl, user ).then(result => console.log(result))
 }
 
