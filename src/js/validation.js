@@ -18,18 +18,6 @@ export function errorText (input, message) {
     return input.nextElementSibling.innerText = message;
 }
 
-// // check if in db is the same login
-// document.getElementById("login").onchange = function (event) {
-//     if( event.target.value ) {
-//         request.getUserData ( event.target.value )
-//             .then( response => {
-//                !response.error ? errorText (event.target,"Sorry, but this login is already occupied by another user. ") : errorText (event.target,"")
-//             })
-//     } else {
-//         errorText(event.target, "This field is required")
-//     }
-// }
-
 document.getElementById("password").oninput = function (event) {  checkPsw(event.target) }
 
 function checkImg(img) {

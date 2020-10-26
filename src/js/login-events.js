@@ -4,7 +4,7 @@ import {accountContainer,  loginContainer, setUser, setUserBinUrl, userBinUrl} f
 import { showAccount } from "./account";
 import {errorText} from "./validation";
 import {toggleDisplay} from "./toggle";
-import {getCookie, writeCookie} from "./cookie";
+import {getCookie, removeCookie, writeCookie} from "./cookie";
 import * as vars from "./vars";
 
 // REGISTRATION FORM SUBMIT
@@ -24,32 +24,33 @@ document.getElementById("registration-btn").onclick= function (event) {
         user.tasks = tasks;
         let database;
         request.getDB()
-            .then(response => !response.users.find(user => user.login === login) ?
+            .then(response => !response.find(user => user.login === login) ?
                                                 database = response :
                                                     errorText(login, "Sorry, but this login is already occupied by another user. ")
-        ).then(response => {
-            if(database) {
-                request.createNewBin(user)
-                        .then(response => {
-                            setUser(user);
-                            setUserBinUrl(response.id);
-                            writeCookie(user, response.id)
+                ).then(response => {
+                    if(database) {
+                        let userBinID;
+                        request.createNewBin(user)
+                                .then(response => {
+                                    setUser(user);
+                                    userBinID = response.id;
+                                    setUserBinUrl(userBinID );
+                                    writeCookie(user, userBinID )
+                                    }).then(response => {
+                                            const userMainData  = {
+                                                login: login.value,
+                                                binID:  userBinID
+                                            }
+                                            database.push(userMainData);
+                                            request.updateData( vars.urlDB, database )
+                                                .then( response => {
+                                                    showAccount(user);
+                                                })
+                                        })
+                    }
                     })
-            }
-        }).then(response => {
-            const userMainData  = {
-                login: getCookie("login"),
-                binID:  getCookie("binID")
-            }
-            database.users.push(userMainData);
-            request.updateData( vars.urlDB, database )
-                .then( response => {
-                    showAccount(user);
-                })
-        })
     }
 }
-
 
 // SIGN IN
 let formFields = document.getElementById("sign-in-form").getElementsByTagName("input");
@@ -64,11 +65,7 @@ document.getElementById("sign-in-btn").onclick = function (event) {
     if ( getCookie("binID") ) {
         setUserBinUrl( getCookie("binID") );
         request.getUserData ( userBinUrl ).then((user)=> {
-            if( user.login === userLogin.value) {
-                checkPsw(user, user.password, userPsw.value)
-            }  else {
-                findUser(userLogin, userPsw);
-            }
+            user.login === userLogin.value ?  checkPsw(user, user.password, userPsw.value) :  findUser(userLogin, userPsw)
         })
     } else {
         findUser(userLogin, userPsw) ;
@@ -76,31 +73,29 @@ document.getElementById("sign-in-btn").onclick = function (event) {
 }
 
 function findUser(login, psw) {
-    let binID;
+    let user;
     request.getDB().then(response => {
-        let user = response.users.find(user => user.login === login.value);
-        if (user) {
-            binID = user.binID;
-            errorText (login, " ");
-        } else {
-            errorText (login, "We can not find user with such login in our database");
-        }
-    }).then(response => {
-        setUserBinUrl(binID);
-        request.getUserData ( userBinUrl ).then((user)=> {
-            setUser(user);
-            checkPsw(user, user.password, psw.value , binID);
-        });
-    })
+        user = response.find(user => user.login === login.value);
+        }).then(response => {
+            if (user) {
+                let binID = user.binID;
+                errorText (login, "");
+                setUserBinUrl(binID);
+                request.getUserData ( userBinUrl ).then((user)=> {
+                    setUser(user);
+                    !getCookie("binID") || getCookie("binID") != binID ? writeCookie(user, binID) : null;
+                    checkPsw(user, user.password, psw.value );
+                });
+            } else {
+                errorText (login, "We can not find user with such login in our database");
+            }
+        })
 }
 
-function checkPsw(user, pswInDB, userPsw, binID) {
-    if( pswInDB === Sha256.hash (userPsw)) {
-        !getCookie("binID") || getCookie("binID") != binID ? writeCookie(user, binID) : null;
-        showAccount(user);
-    } else {
-        errorText (document.getElementById("user-password"), "Password is wrong. Try again")
-    }
+function checkPsw(user, pswInDB, userPsw) {
+    pswInDB === Sha256.hash (userPsw) ?
+                                        showAccount(user) :
+                                            errorText (document.getElementById("user-password"), "Password is wrong. Try again")
 }
 
 for(  let eye of document.getElementsByClassName("eye") ) {
@@ -115,12 +110,30 @@ document.getElementById("sign-out").onclick = function (event) {
     toggleDisplay(loginContainer, accountContainer);
     document.cookie= `signed-out=true`;
 }
- //   TODO:  possibility to remove account
-// // DELETE ACCOUNT
-// document.getElementById("delete-account").onclick = function (event) {
-//     deleteAccount( userUrl(cookie.getCookie("login")))
-//     cookie.removeCookie();
-//     for (let field of formFields)  { field.value = " " }
-//     toggleDisplay(loginContainer, accountContainer);
-// }
 
+
+// REMOVE ACCOUNT
+document.getElementById("delete-account").onclick = function (event) {
+    let dbWithUserRemoved;
+    request.getDB()
+        .then(response =>  {
+                dbWithUserRemoved = response.filter(user => user.login  !== getCookie("login"));
+
+            }).then( response => {
+                    request.removeBin(userBinUrl).then(response => {
+                        request.updateData( vars.urlDB, dbWithUserRemoved )
+
+                            .then( response => {
+                                removeCookie();
+                                for (let field of formFields)  { field.value = "" }
+                                toggleDisplay(loginContainer, accountContainer);
+                            })
+                    })
+                })
+}
+
+for (let field of formFields)  {
+    field.onchange = function ( event ) {
+        if (event.target.nextElementSibling.innerText != "") errorText(event.target, "");
+    }
+}

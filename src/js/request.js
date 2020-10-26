@@ -24,7 +24,6 @@ export function updateData( url, data ) {
             "Content-Type": "application/json",
             "secret-key":  vars.secretKey,
             "versioning":  false
-            ///"name": userData.login
         },
         body: JSON.stringify(data )
     } )
@@ -42,12 +41,12 @@ export function createNewBin (userData) {
     } ).then(response => response.json())
 }
 
-export function deleteAccount(url) {
+export function removeBin(url) {
     return fetch( url , {
         method: "DELETE",
         headers: {
             "Content-Type": "application/json",
             "secret-key": vars.secretKey
         }
-    }).then ( response => response  )
+    });
 }

@@ -20,6 +20,6 @@ export function showAccount(user) {
 
     toggleTasksDisplay("new")
     countTasks();
-    preloader.style.display = "none"
-    document.cookie = "signed out=; expires=" + emptyDate;
+    document.cookie = "signed-out=; expires=" + emptyDate;
+    preloader.style.display = "none";
 }
