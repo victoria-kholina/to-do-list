@@ -1,4 +1,3 @@
-import {  toggleTasksDisplay  } from "./toggle";
 import { user, userBinUrl } from"./vars"
 import { errorText } from "./validation";
 import { updateData } from "./request";
@@ -11,7 +10,7 @@ export function countTasks() {
 }
 
 
-export function addTask(taskText, statusClass) {
+export function addTask(taskText, statusClass, taskID) {
     let htmlText = `<label class="task__mark">
                                     <input type="checkbox" >
                                     <span class="checkmark"></span>
@@ -22,7 +21,7 @@ export function addTask(taskText, statusClass) {
     let task = document.getElementById("tasks").insertAdjacentElement('afterbegin', document.createElement("li"));
     task.classList.add("task", statusClass);
     task.innerHTML = htmlText;
-    task.setAttribute("id", setID() );
+    task.setAttribute("id",  taskID );
    return task;
 }
 
@@ -43,7 +42,7 @@ function cleanValue () {
 document.getElementById("add-task").onclick = function (event) {
     let inputTask = document.getElementById("new-task");
     if (inputTask.value !== "")  {
-        let newTask = addTask (inputTask.value, "new");
+        let newTask = addTask (inputTask.value, "new", setID());
         if ( user ) {
             let userTasks =  user.tasks;
             userTasks.push( {
@@ -51,7 +50,6 @@ document.getElementById("add-task").onclick = function (event) {
                 task: inputTask.value,
                 status: "new"
             } )
-            console.log(user) ;
         }
         cleanValue ();
         errorText !== "" ? errorText (inputTask, " ") : null;
@@ -81,6 +79,13 @@ document.getElementById("to-do-tasks").onclick= function (event) {
 }
 document.getElementById("done-tasks").onclick= function (event) {
     toggleTasksDisplay("done")
+}
+
+function toggleTasksDisplay( tasksToShow) {
+    for(  let task of document.getElementsByClassName("task") ) {
+        task.style.display = "none";
+        if ( task.classList.contains(tasksToShow) )  task.style.display = "flex";
+    }
 }
 
 // SAVE CHANGES

@@ -1,56 +1,9 @@
-import { isValid, imageBase64 } from "./validation";
 import * as request  from "./request";
-import {accountContainer,  loginContainer, setUser, setUserBinUrl, userBinUrl} from "./vars"
 import { showAccount } from "./account";
 import {errorText} from "./validation";
 import {toggleDisplay} from "./toggle";
 import {getCookie, removeCookie, writeCookie} from "./cookie";
 import * as vars from "./vars";
-
-// REGISTRATION FORM SUBMIT
-
-document.getElementById("registration-btn").onclick= function (event) {
-    const user = {};
-    let avatar = document.getElementById("avatar"),
-        login = document.getElementById("login"),
-        password = document.getElementById("password"),
-        tasks = [];
-
-    if ( isValid( document.getElementById("registration-form") ) != false ) {
-        !avatar.files[0] ? user[avatar.name] = false : user[avatar.name] = imageBase64;
-        user[login.name] = login.value;
-        let pswHash = Sha256.hash (password.value);
-        user[password.name] = pswHash;
-        user.tasks = tasks;
-        let database;
-        request.getDB()
-            .then(response => !response.find(user => user.login === login) ?
-                                                database = response :
-                                                    errorText(login, "Sorry, but this login is already occupied by another user. ")
-                ).then(response => {
-                    if(database) {
-                        let userBinID;
-                        request.createNewBin(user)
-                                .then(response => {
-                                    setUser(user);
-                                    userBinID = response.id;
-                                    setUserBinUrl(userBinID );
-                                    writeCookie(user, userBinID )
-                                    }).then(response => {
-                                            const userMainData  = {
-                                                login: login.value,
-                                                binID:  userBinID
-                                            }
-                                            database.push(userMainData);
-                                            request.updateData( vars.urlDB, database )
-                                                .then( response => {
-                                                    showAccount(user);
-                                                })
-                                        })
-                    }
-                    })
-    }
-}
 
 // SIGN IN
 let formFields = document.getElementById("sign-in-form").getElementsByTagName("input");
@@ -62,9 +15,9 @@ document.getElementById("sign-in-btn").onclick = function (event) {
     for ( let field of formFields ) {
         field.value == "" ? errorText (field, "This field is required") : null  }
 
-    if ( getCookie("binID") ) {
-        setUserBinUrl( getCookie("binID") );
-        request.getUserData ( userBinUrl ).then((user)=> {
+    if ( getCookie("binID") ) {  //here we check if there is binID in cookie, that we can use for access to user bin.
+        vars.setUserBinUrl( getCookie("binID") );
+        request.getUserData ( vars.userBinUrl ).then((user)=> {
             user.login === userLogin.value ?  checkPsw(user, user.password, userPsw.value) :  findUser(userLogin, userPsw)
         })
     } else {
@@ -72,7 +25,7 @@ document.getElementById("sign-in-btn").onclick = function (event) {
     }
 }
 
-function findUser(login, psw) {
+function findUser(login, psw) { //here we request bin with DB to check if there is user with login in input, but did not found in cookie
     let user;
     request.getDB().then(response => {
         user = response.find(user => user.login === login.value);
@@ -80,10 +33,10 @@ function findUser(login, psw) {
             if (user) {
                 let binID = user.binID;
                 errorText (login, "");
-                setUserBinUrl(binID);
-                request.getUserData ( userBinUrl ).then((user)=> {
-                    setUser(user);
-                    !getCookie("binID") || getCookie("binID") != binID ? writeCookie(user, binID) : null;
+                vars.setUserBinUrl(binID);
+                request.getUserData ( vars.userBinUrl ).then((user)=> {
+                    vars.setUser(user);
+                    !getCookie("binID") || getCookie("binID") != binID ? writeCookie(user, binID) : null; //there cases when cookie with binID did not found at all. OR found but did not match the one in DB.
                     checkPsw(user, user.password, psw.value );
                 });
             } else {
@@ -107,7 +60,7 @@ for(  let eye of document.getElementsByClassName("eye") ) {
 
 // SIGN OUT
 document.getElementById("sign-out").onclick = function (event) {
-    toggleDisplay(loginContainer, accountContainer);
+    toggleDisplay(vars.loginContainer, vars.accountContainer);
     document.cookie= `signed-out=true`;
 }
 
@@ -120,13 +73,13 @@ document.getElementById("delete-account").onclick = function (event) {
                 dbWithUserRemoved = response.filter(user => user.login  !== getCookie("login"));
 
             }).then( response => {
-                    request.removeBin(userBinUrl).then(response => {
+                    request.removeBin(vars.userBinUrl).then(response => {
                         request.updateData( vars.urlDB, dbWithUserRemoved )
 
                             .then( response => {
                                 removeCookie();
                                 for (let field of formFields)  { field.value = "" }
-                                toggleDisplay(loginContainer, accountContainer);
+                                toggleDisplay(vars.loginContainer, vars.accountContainer);
                             })
                     })
                 })

@@ -1,4 +1,3 @@
-import {toggleTaskState} from "./toggle";
 import {countTasks} from "./task";
 
 export function startObserve(user, elem) {
@@ -20,8 +19,9 @@ export function startObserve(user, elem) {
                     for(  let checkMark of document.getElementsByClassName("checkmark") ) {
                         checkMark.onclick = function (event) {
                             let taskEdited = event.target.parentElement.parentElement;
+                            console.log(taskEdited, user)
                             let currTask = user.tasks.find( task=> task.id === taskEdited.getAttribute("id"))
-                            currTask.status = toggleTaskState(event.target);
+                            currTask.status = toggleTaskState(taskEdited);
                         }
                     }
                 }
@@ -34,3 +34,19 @@ export function startObserve(user, elem) {
 
     observer.observe ( elem, config );
 }
+
+ function toggleTaskState(task) {
+    let state;
+    if( task .classList.contains("new") ) {
+        task.classList.remove("new");
+        task.classList.add("done");
+        state =  "done";
+    } else if (task.classList.contains("done")) {
+        task.classList.remove("done");
+        task.classList.add("new");
+        state =  "new";
+    }
+    countTasks();
+    return state;
+}
+

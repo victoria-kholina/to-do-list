@@ -5,7 +5,7 @@ import {showAccount} from "./account";
 
 getCookie("binID") ? checkifSignedOut() : preloader.style.display = "none";
 
-function checkifSignedOut() {
+function checkifSignedOut() { //on page upload we check if user signed out or no, if no we request all his data from database
     if( getCookie("signed-out" )) {
         document.getElementById("user-login").value = getCookie("login"); //set login from cookie into input field
         preloader.style.display = "none"

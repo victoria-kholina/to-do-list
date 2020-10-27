@@ -22,7 +22,7 @@ document.getElementById("password").oninput = function (event) {  checkPsw(event
 
 function checkImg(img) {
     !img.files[0] ? null :
-        img.files[0].size / 1024 > 300 ?  errorText (img,"Big size of image. Please upload max 300kB") :
+        img.files[0].size / 1024 > 300 ?  errorText (img,"The image is too big. Please upload up to 300kB") :
             img.files[0].type.split('/')[0] != "image" ?  errorText (img,"Not an image. Please upload only images") :
                 showImgUploaded(img);
 }
@@ -34,11 +34,11 @@ function showImgUploaded( img ) {
 }
 
 function checkPsw(psw) {
-    psw.value === ""  ? errorText (psw, "This field is required.") :
-        psw.value.length < 8 ?   errorText (psw, "Password should contain as minimum 8 characters") :
-            !psw.value.match(/[a-z]+/) ?  errorText (psw,"Password should contain as minimum 1 latin letter in low register" ):
-                !psw.value.match(/[A-Z]+/) ?  errorText (psw, "Password should contain as minimum 1 latin letter in upper register"):
-                    !psw.value.match(/\d+/) ?  errorText (psw, "Password should contain as minimum 1 digit" ):
+    psw.value === ""  ? errorText (psw, "This field is required") :
+        psw.value.length < 8 ?   errorText (psw, "Password should contain at least 8 characters") :
+            !psw.value.match(/[a-z]+/) ?  errorText (psw,"Password should contain at least 1 latin letter in a lower case" ):
+                !psw.value.match(/[A-Z]+/) ?  errorText (psw, "Password should contain at least 1 latin letter in an upper case"):
+                    !psw.value.match(/\d+/) ?  errorText (psw, "Password should contain at least 1 digit" ):
                         errorText (psw, "");
 }
 
